@@ -22,11 +22,11 @@ public class CustomerService {
     }
 
     public void signUp(Customer customer) {
-        Cart cart = new Cart();
-        customer.setCart(cart);
+        Cart cart = new Cart(); //create a new shopping cart
+        customer.setCart(cart); // 设置cart
 
-        customer.setEnabled(true);
-        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        customer.setEnabled(true); // 激活
+        customer.setPassword(passwordEncoder.encode(customer.getPassword())); // 获取输入的密码然后设置密码
         customerDao.signUp(customer);
     }
 

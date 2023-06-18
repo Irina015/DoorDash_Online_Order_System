@@ -14,8 +14,8 @@ public class Customer implements Serializable{
     private String password;
     private boolean enabled;  // 注销 deleted
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(unique = true)
+    @OneToOne(cascade = CascadeType.ALL) // 所有关联操作同步，save-update, and delete
+    @JoinColumn(unique = true) // 这个字段的值在这个表里不能重复，只能唯一
     private Cart cart;
 
     public String getEmail() {

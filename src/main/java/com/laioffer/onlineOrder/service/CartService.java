@@ -20,14 +20,15 @@ public class CartService {
 
 
     public Cart getCart() {
-        Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
-        String username = loggedInUser.getName();
-        Customer customer = customerService.getCustomer(username);
+        // customer的entity里面也有getCart()
+        Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication(); // 验证
+        String username = loggedInUser.getName(); // 获取登录的username
+        Customer customer = customerService.getCustomer(username); // 从username获取客户信息
 
         if (customer != null) {
-            Cart cart = customer.getCart();
+            Cart cart = customer.getCart(); // 获取客户的cart, entity的方法
             double totalPrice = 0;
-            for (OrderItem item : cart.getOrderItemList()) {
+            for (OrderItem item : cart.getOrderItemList()) { // entity的方法
                 totalPrice += item.getPrice() * item.getQuantity();
             }
             cart.setTotalPrice(totalPrice);

@@ -29,14 +29,14 @@ public class HelloServlet extends HttpServlet {
 //        out.println("</body></html>");
 
 //        response.setContentType("application/json");
-//        JSONObject customer = new JSONObject();
+//        JSONObject customer = new JSONObject();  // 创建object
 //        customer.put("email", "laioffer@gmail.com");
 //        customer.put("first_name", "Irina");
 //        customer.put("age", 30);
 //        response.getWriter().print(customer);
         response.setContentType("application/json");
 
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper();  // objectMapper是什么？
         Customer customer = new Customer();
         customer.setEmail("irina@gmail.com");
         customer.setFirstName("Irina");
